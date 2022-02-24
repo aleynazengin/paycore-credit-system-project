@@ -12,7 +12,7 @@ public class CreditApplicationMapper {
     {
         CreditApplication creditApplication= new CreditApplication();
         creditApplication.setCreditLimit(limit);
-        creditApplication.setApplicationVerified(isApplicationApproved);
+        creditApplication.setApplicationApproved(isApplicationApproved);
         creditApplication.setCustomer(customer);
         creditApplication.setApplyDate(new java.sql.Date(Calendar.getInstance().getTime().getTime()));
         return creditApplication;

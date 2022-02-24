@@ -27,8 +27,8 @@ public class CreditApplication {
     private Customer customer;
 
     @NotNull
-    @Column(name = "is_application_verified")
-    private boolean isApplicationVerified;
+    @Column(name = "is_application_approved")
+    private boolean isApplicationApproved;
 
     @Column(name = "credit_limit")
     private int creditLimit;
