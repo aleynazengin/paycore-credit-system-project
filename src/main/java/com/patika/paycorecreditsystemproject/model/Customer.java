@@ -1,5 +1,6 @@
 package com.patika.paycorecreditsystemproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -39,7 +40,8 @@ public class Customer implements Serializable {
     @Size(min = 10,max= 10, message = "Phone number should be exact 10 characters." )
     private String phone;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.MERGE)
     private List<CreditApplication> creditApplications;
 
 }
