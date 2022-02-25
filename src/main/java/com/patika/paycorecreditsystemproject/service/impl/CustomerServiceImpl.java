@@ -1,5 +1,6 @@
 package com.patika.paycorecreditsystemproject.service.impl;
 
+import com.patika.paycorecreditsystemproject.exception.NationalIdAlreadyExistsException;
 import com.patika.paycorecreditsystemproject.exception.NotFoundException;
 import com.patika.paycorecreditsystemproject.model.Customer;
 import com.patika.paycorecreditsystemproject.repository.CustomerRepository;
@@ -23,6 +24,9 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void addCustomer(Customer customer) {
+        if (customerRepository.findByNationalId(customer.getNationalId())!=null)
+            throw new NationalIdAlreadyExistsException();
+
         customerRepository.save(customer);
     }
 

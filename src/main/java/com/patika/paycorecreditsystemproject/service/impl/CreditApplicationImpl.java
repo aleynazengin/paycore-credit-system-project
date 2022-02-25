@@ -84,7 +84,8 @@ public class CreditApplicationImpl implements CreditApplicationService {
         Customer customer = customerRepository.findByNationalId(nationalId);
         Stream<CreditApplication> stream = customer.getCreditApplications().stream();
         long count = customer.getCreditApplications().stream().count();
-        CreditApplication creditApplication =stream.skip(count - 1).findFirst().get();
+        CreditApplication creditApplication =stream.skip(count - 1).findFirst()
+                .orElseThrow(() -> new NotFoundException("Credit Application"));
 
         if(creditApplication.isApplicationApproved())
             return "Your credit application has been approved.Your credit limit is : " + getLimit(creditApplication)
