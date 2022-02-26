@@ -8,6 +8,8 @@ import com.patika.paycorecreditsystemproject.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -15,6 +17,11 @@ import java.util.Optional;
 public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Override
+    public List<Customer> getAllCustomer() {
+        return customerRepository.findAll();
+    }
 
     @Override
     public Customer getCustomer(Integer id) {
@@ -37,6 +44,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public boolean deleteCustomer(Integer id) {
+        customerRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Customer"));
         customerRepository.delete(getCustomer(id));
         return true;
     }
