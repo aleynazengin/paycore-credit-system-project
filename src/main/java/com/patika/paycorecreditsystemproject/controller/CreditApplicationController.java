@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping("/creditApplication")
 public class CreditApplicationController {
     private final CreditApplicationService creditApplicationService;
-    int limit;
+
     @GetMapping
     public String welcome() {
         return "Welcome to Credit Application Service!";
