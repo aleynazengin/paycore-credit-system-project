@@ -20,9 +20,9 @@ public class CreditApplication {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull
+    @NotNull(message = "Customer National id can not be null")
     @JsonBackReference
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "customer_national_id",referencedColumnName = "national_id")
     private Customer customer;
 
