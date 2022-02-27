@@ -3,8 +3,6 @@ package com.patika.paycorecreditsystemproject.service.impl;
 import com.patika.paycorecreditsystemproject.exception.NotFoundException;
 import com.patika.paycorecreditsystemproject.model.CreditApplication;
 import com.patika.paycorecreditsystemproject.model.Customer;
-import com.patika.paycorecreditsystemproject.model.dto.CreditApplicationDTO;
-import com.patika.paycorecreditsystemproject.repository.CreditApplicationRepository;
 import com.patika.paycorecreditsystemproject.repository.CustomerRepository;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -20,8 +18,6 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class CreditApplicationImplTest {
-    @Mock
-    private CreditApplicationRepository creditApplicationRepository;
     @Mock
     private CustomerRepository customerRepository;
 
