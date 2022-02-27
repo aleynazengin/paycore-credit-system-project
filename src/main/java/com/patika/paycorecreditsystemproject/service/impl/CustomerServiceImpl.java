@@ -4,6 +4,7 @@ import com.patika.paycorecreditsystemproject.exception.NationalIdAlreadyExistsEx
 import com.patika.paycorecreditsystemproject.exception.NotFoundException;
 import com.patika.paycorecreditsystemproject.model.Customer;
 import com.patika.paycorecreditsystemproject.repository.CustomerRepository;
+import com.patika.paycorecreditsystemproject.service.CustomerCreditScoreService;
 import com.patika.paycorecreditsystemproject.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ import java.util.Optional;
 public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Autowired
+    private CustomerCreditScoreService creditScoreService;
 
     @Override
     public List<Customer> getAllCustomer() {
@@ -35,6 +39,7 @@ public class CustomerServiceImpl implements CustomerService {
             throw new NationalIdAlreadyExistsException();
 
         customerRepository.save(customer);
+        creditScoreService.addScore(customer);
     }
 
     @Override
