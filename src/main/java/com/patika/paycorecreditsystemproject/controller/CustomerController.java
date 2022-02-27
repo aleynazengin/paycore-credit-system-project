@@ -26,7 +26,6 @@ public class CustomerController {
     @PostMapping(value = "/create")
     public void createCustomer(@Valid @RequestBody Customer customer) {
         customerService.addCustomer(customer);
-        creditScoreService.addScore(customer);
     }
 
     @PutMapping(value = "/update")
