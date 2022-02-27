@@ -18,7 +18,7 @@ REST end-points that provides CREATE,UPDATE,DELETE operations for customer :
 2. PUT /customer/update
 3. DELETE /customer/delete
 
-##Database Design Architecture
+## Database Design Architecture
 ![Diagram](DatabaseDiagram.png)
 
 ## Technologies used
@@ -68,7 +68,7 @@ mvn spring-boot:run
 
 The application will be available at the URL: [Home](http://localhost:8080).
 
-##RabbitMQ
+## RabbitMQ
 Exposing the Costumer as a service to be used by another micro-service. [RabbitMQ Consumer Project](https://github.com/aleynazengin/paycore-simple-rabbitmq-consumer).
 
 Start rabbitmq-server after installing it on your machine
@@ -77,7 +77,7 @@ Username/password: guest/guest
 
 RabbitMQ will be available at the URL: [RabbitMQ](http://localhost:5672).
 
-##Docker
+## Docker
 First you need to uncomment this line in application.properties;
 
 * spring.profiles.active=docker
